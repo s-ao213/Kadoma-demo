@@ -1,0 +1,123 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Kosugi Maru', sans-serif;
+}
+
+body {
+  background-color: #fdfaf5;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.image-area {
+  width: 100%;
+}
+
+.image-placeholder {
+  background-color: #ddd;
+  aspect-ratio: 5 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font-size: 1.2rem;
+}
+
+.content {
+  padding: 20px 0;
+}
+
+.company-name {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.company-description {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.company-info {
+  background-color: #fff9e6;
+  padding: 15px;
+  border-left: 5px solid #ffcb05;
+  border-radius: 5px;
+}
+
+.company-info h2 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.company-info ul {
+  list-style: none;
+}
+
+.company-info li {
+  margin-bottom: 8px;
+}
+
+.company-info a {
+  color: #007acc;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.company-info a:hover {
+  text-decoration: underline;
+}
+
+/* PC表示時のレイアウト調整 */
+@media (min-width: 768px) {
+  .image-placeholder {
+    height: auto;
+    aspect-ratio: 5 / 4;
+  }
+}
+.back-home {
+  margin: 15px 0;
+}
+
+.home-button {
+  display: inline-block;
+  background-color: #ffa07a;
+  color: white;
+  padding: 10px 16px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.home-button:hover {
+  background-color: #ff7f50;
+}
+
+
+@media (min-width: 1024px) {
+  body {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+  .container {
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  .image-area {
+    flex: 1;
+  }
+
+  .content {
+    flex: 2;
+    padding: 0;
+  }
+}
