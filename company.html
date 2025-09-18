@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>企業紹介テンプレート | ファクトリズム</title>
+  <link rel="stylesheet" href="company.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Model Viewer for 3D content -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+</head>
+<body>
+    <nav class="back-home">
+        <a href="index.html" class="home-button"><i class="fas fa-arrow-left"></i> ホームに戻る</a>
+    </nav>
+  <div class="container">
+    <header class="image-area">
+      <!-- メディアコンテンツエリア（画像/動画/3D） -->
+      <div id="mediaContainer" class="media-container">
+        <div class="image-placeholder">メディアコンテンツ読み込み中...</div>
+      </div>
+    </header>
+    <br>
+
+    <main class="content">
+      <h1 id="companyName" class="company-name">企業名</h1>
+      <div class="company-overview">
+        <p id="companyOverview" class="company-description">企業概要</p>
+      </div>
+      
+      <!-- イベント展示内容 -->
+      <section class="event-content">
+        <h2><i class="fas fa-calendar-alt"></i> イベント展示内容</h2>
+        <p id="eventContent">展示内容の説明</p>
+        <div class="participation-fee">
+          <strong><i class="fas fa-yen-sign"></i> 参加費：</strong>
+          <span id="participationFee">0</span>円
+        </div>
+      </section>
+
+      <!-- ブース情報 -->
+      <section class="booth-info">
+        <h2><i class="fas fa-info-circle"></i> ブース情報</h2>
+        
+        <div id="viewBooth" class="booth-section" style="display: none;">
+          <h3><i class="fas fa-eye"></i> 見るブース</h3>
+          <p class="booth-description"></p>
+        </div>
+        
+        <div id="listenBooth" class="booth-section" style="display: none;">
+          <h3><i class="fas fa-ear-listen"></i> 聞くブース</h3>
+          <p class="booth-description"></p>
+        </div>
+        
+        <div id="experienceBooth" class="booth-section" style="display: none;">
+          <h3><i class="fas fa-hand-paper"></i> 体験ブース</h3>
+          <p class="booth-description"></p>
+        </div>
+      </section>
+    </main>
+    <br>
+  </div>
+  <br>
+  
+  <!-- 企業情報 -->
+  <section class="company-info">
+    <h2>企業情報</h2>
+    <ul>
+      <li><strong>住所：</strong><span id="address">ここに記入</span></li>
+      <li><strong>電話番号：</strong><span id="phone">ここに記入</span></li>
+      <li><strong>ホームページ：</strong><a id="website" href="#" target="_blank">ここに記入</a></li>
+      <li><strong>SNS：</strong>
+        <div class="sns-links">
+          <a id="twitter" href="#" target="_blank" style="display: none;"><i class="fab fa-twitter"></i></a>
+          <a id="facebook" href="#" target="_blank" style="display: none;"><i class="fab fa-facebook"></i></a>
+          <a id="instagram" href="#" target="_blank" style="display: none;"><i class="fab fa-instagram"></i></a>
+          <a id="tiktok" href="#" target="_blank" style="display: none;"><i class="fab fa-tiktok"></i></a>
+          <a id="youtube" href="#" target="_blank" style="display: none;"><i class="fab fa-youtube"></i></a>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <script src="company.js"></script>
+</body>
+</html>

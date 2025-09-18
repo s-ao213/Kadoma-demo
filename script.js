@@ -1,89 +1,23 @@
-// 企業データ（実際のデータに置き換えてください）
-const companies = [
-    {
-        name: '企業名1',
-        industry: '製造業',
-        icon: 'fas fa-cogs',
-        filename: '企業名1.html'
-    },
-    {
-        name: '企業名2',
-        industry: 'テクノロジー',
-        icon: 'fas fa-microchip',
-        filename: '企業名2.html'
-    },
-    {
-        name: '企業名3',
-        industry: '自動車',
-        icon: 'fas fa-car',
-        filename: '企業名3.html'
-    },
-    {
-        name: '企業名4',
-        industry: '化学',
-        icon: 'fas fa-flask',
-        filename: '企業名4.html'
-    },
-    {
-        name: '企業名5',
-        industry: '食品',
-        icon: 'fas fa-utensils',
-        filename: '企業名5.html'
-    },
-    {
-        name: '企業名6',
-        industry: '電子機器',
-        icon: 'fas fa-mobile-alt',
-        filename: '企業名6.html'
-    },
-    {
-        name: '企業名7',
-        industry: '建設',
-        icon: 'fas fa-hard-hat',
-        filename: '企業名7.html'
-    },
-    {
-        name: '企業名8',
-        industry: '繊維',
-        icon: 'fas fa-tshirt',
-        filename: '企業名8.html'
-    },
-    {
-        name: '企業名9',
-        industry: 'エネルギー',
-        icon: 'fas fa-bolt',
-        filename: '企業名9.html'
-    },
-    {
-        name: '企業名10',
-        industry: '医療機器',
-        icon: 'fas fa-heartbeat',
-        filename: '企業名10.html'
-    },
-    {
-        name: '企業名11',
-        industry: '航空宇宙',
-        icon: 'fas fa-rocket',
-        filename: '企業名11.html'
-    },
-    {
-        name: '企業名12',
-        industry: '環境',
-        icon: 'fas fa-leaf',
-        filename: '企業名12.html'
-    }
-];
+// script.js - メインページの動的コンテンツ生成
 
-// ページ読み込み後の初期化
-document.addEventListener('DOMContentLoaded', function() {
-    generateCompanyCards();
-    initializeAnimations();
-    setupScrollIndicator();
-});
+// 企業データを読み込み
+async function loadCompanies() {
+    try {
+        const response = await fetch('company.json');
+        const companies = await response.json();
+        generateCompanyCards(companies);
+    } catch (error) {
+        console.error('企業データの読み込みエラー:', error);
+        // エラー時は既存の静的コンテンツを維持
+    }
+}
 
 // 企業カードを動的に生成
-function generateCompanyCards() {
-    const grid = document.getElementById('companiesGrid');
+function generateCompanyCards(companies) {
+    const grid = document.querySelector('.company-grid');
+    
+    // 既存のカードをクリア
+    grid.innerHTML = '';
     
     companies.forEach((company, index) => {
         const card = createCompanyCard(company, index);
@@ -93,38 +27,85 @@ function generateCompanyCards() {
 
 // 企業カードを作成
 function createCompanyCard(company, index) {
-    const card = document.createElement('div');
+    const card = document.createElement('a');
     card.className = 'company-card';
+    card.href = `company.html?id=${company.id}`;
     card.style.animationDelay = `${index * 0.1}s`;
     
-    card.innerHTML = `
-        <div class="company-logo">
-            <i class="${company.icon}"></i>
-        </div>
-        <div class="company-info">
-            <h3 class="company-name">${company.name}</h3>
-            <p class="company-industry">${company.industry}</p>
-        </div>
-    `;
+    // テーマカラーがある場合は適用
+    if (company.themeColor && company.themeColor !== '#808080') {
+        card.style.borderColor = company.themeColor;
+    }
     
-    // クリックイベントを追加
-    card.addEventListener('click', () => {
-        navigateToCompany(company.filename);
-    });
+    // 業種に基づいてアイコンを取得（フォールバック付き）
+    const iconHtml = company.industry ? getIndustryIcon(company.industry) : getCompanyEmoji(company.id);
+    
+    card.innerHTML = `
+        <div class="emoji">${iconHtml}</div>
+        <span>${company.name}</span>
+    `;
     
     // ホバーエフェクトを追加
     card.addEventListener('mouseenter', () => {
+        if (company.themeColor && company.themeColor !== '#808080') {
+            card.style.backgroundColor = company.themeColor + '20'; // 透明度20%
+        }
         playHoverSound();
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.backgroundColor = '#fff';
     });
     
     return card;
 }
 
-// 企業ページに遷移
-function navigateToCompany(filename) {
-    // 実際のファイルに遷移（ファイルが存在する場合）
-    window.location.href = filename;
+// 業種に基づいてアイコンを取得
+function getIndustryIcon(industry) {
+    const industryIcons = {
+        '金属加工': '<i class="fas fa-hammer"></i>',
+        'ばね製造': '<i class="fas fa-circle-notch"></i>',
+        '縫製': '<i class="fas fa-cut"></i>',
+        '木工': '<i class="fas fa-tree"></i>',
+        '溶接': '<i class="fas fa-fire"></i>',
+        '歯車製造': '<i class="fas fa-cog"></i>',
+        '建材製造': '<i class="fas fa-building"></i>',
+        '測量・建設機械': '<i class="fas fa-ruler-combined"></i>',
+        '機械製造': '<i class="fas fa-wrench"></i>',
+        '電子機器': '<i class="fas fa-microchip"></i>',
+        '自動車': '<i class="fas fa-car"></i>',
+        '化学': '<i class="fas fa-flask"></i>',
+        '食品': '<i class="fas fa-utensils"></i>',
+        '医療機器': '<i class="fas fa-heartbeat"></i>',
+        'エネルギー': '<i class="fas fa-bolt"></i>',
+        '環境': '<i class="fas fa-leaf"></i>',
+        '樹脂成型': '<i class="fas fa-cube"></i>',
+        'FA装置製造': '<i class="fas fa-robot"></i>',
+        '精密加工': '<i class="fas fa-drafting-compass"></i>',
+        'その他': '<i class="fas fa-industry"></i>'
+    };
+    
+    return industryIcons[industry] || industryIcons['その他'];
 }
+
+// 企業IDに基づいてエモジを取得（フォールバック用）
+function getCompanyEmoji(id) {
+    const iconClasses = [
+        '<i class="fas fa-cog"></i>', '<i class="fas fa-wrench"></i>', '<i class="fas fa-industry"></i>', 
+        '<i class="fas fa-hammer"></i>', '<i class="fas fa-tools"></i>', '<i class="fas fa-hard-hat"></i>', 
+        '<i class="fas fa-bolt"></i>', '<i class="fas fa-cube"></i>', '<i class="fas fa-building"></i>', 
+        '<i class="fas fa-car"></i>', '<i class="fas fa-microchip"></i>', '<i class="fas fa-robot"></i>', 
+        '<i class="fas fa-cut"></i>', '<i class="fas fa-fire"></i>', '<i class="fas fa-dharmachakra"></i>'
+    ];
+    return iconClasses[(id - 1) % iconClasses.length];
+}
+
+// ページ読み込み後の初期化
+document.addEventListener('DOMContentLoaded', function() {
+    loadCompanies();
+    initializeAnimations();
+    setupScrollIndicator();
+});
 
 // アニメーション初期化
 function initializeAnimations() {
@@ -152,20 +133,22 @@ function initializeAnimations() {
 function setupScrollIndicator() {
     const scrollIndicator = document.querySelector('.scroll-indicator');
     
-    scrollIndicator.addEventListener('click', () => {
-        document.querySelector('.event-overview').scrollIntoView({
-            behavior: 'smooth'
+    if (scrollIndicator) {
+        scrollIndicator.addEventListener('click', () => {
+            document.querySelector('.overview').scrollIntoView({
+                behavior: 'smooth'
+            });
         });
-    });
-    
-    // スクロール時にインジケーターを非表示
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            scrollIndicator.style.opacity = '0';
-        } else {
-            scrollIndicator.style.opacity = '1';
-        }
-    });
+        
+        // スクロール時にインジケーターを非表示
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                scrollIndicator.style.opacity = '0';
+            } else {
+                scrollIndicator.style.opacity = '1';
+            }
+        });
+    }
 }
 
 // ホバー音効果（オプション）
@@ -190,21 +173,6 @@ function playHoverSound() {
     } catch (error) {
         // 音効果が再生できない場合は無視
         console.log('Audio context not available');
-    }
-}
-
-// パーティクル効果（オプション）
-function createParticles() {
-    const particleContainer = document.createElement('div');
-    particleContainer.className = 'particle-container';
-    document.body.appendChild(particleContainer);
-    
-    for (let i = 0; i < 50; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 2 + 's';
-        particleContainer.appendChild(particle);
     }
 }
 

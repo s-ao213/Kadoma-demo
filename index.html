@@ -1,48 +1,40 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>テンプレート集</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ファクトリズム - 工場で遊ぼう！</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>門真市のテンプレートリンク集</h1>
-    <ul>
-        <li><a href="index2.html">メインページ案1</a></li>
-        <li><a href="index3.html">メインページ案2</a></li>
-    </ul>
-    <h1>全体の構成について</h1>
-    <h2>メインページ</h2>
-    <ul>
-        <li><h3>一番最初のヘッダー部</h3></li>
-        <p>ここには今回のイベントのタイトルを入れる予定。背景にファクトリズムがイメージできるイラストなどを入れて動かすのもよいと思います。<span style="color: red;">要作成</span></p>
-        <li><h3>イベントについて</h3></li>
-        <p>ここには今回のイベントの、開催場所や日時、どのようなことをするかなども含めて書けたらいいと思っています。</p>
-        <li><h3>ファクトリズムに関する説明</h3></li>
-        <p>これは門真市やファクトリズムの公式ページからの説明文を持ってきて貼ることになると思います。</p>
-        <li><h3>会社紹介ページに飛ぶリンク一覧</h3></li>
-        <p>リンク集ということで単に企業名を並べてもよいが、どうせなら扉絵があってもいいのではないかと思い、とりあえず仮で画像を入れています。デザインはボタン式にしていますが、変更も可能です。<span style="color: red;">要作成</span></p>
-    </ul>
-    <h2>企業紹介ページ</h2>
-    <ul>
-        <li><h3>企業画像</h3></li>
-        <p>ここは企業の写真や説明動画などを入れます。希望がない場合は横4縦5の比率で枠を作る予定です。（企業3のデザインを除く）<span style="color: red;">要作成</span></p>
-        <li><h3>企業名</h3></li>
-        <p>企業名を入れます。</p>
-        <li><h3>企業紹介</h3></li>
-        <p>企業の紹介文を入れます。ここは企業の方に字数を指定して送っていただくか、自分たちで考えて書くことになるかと思います。</p>
-        <li><h3>企業概要</h3></li>
-        <p>企業の住所やホームページ等の情報をいれます。SNSをやっている企業もあるとのことなので、企業側からの希望があればそちらも要確認。</p>
-    </ul>
+  <header class="main-header">
+    <h1>ファクトリズム 2025</h1>
+    <p>いつもの道に潜む町工場の技術、地元の”すごい”が発見できる一日！</p>
+  </header>
 
-    <h2>確認したいこと</h2>
-    <ul>
-        <li>一番最初のヘッダーをどうするか？（画像や動画を入れるかどうか）</li>
-        <li>メインページの項目はこれだけでよいか？</li>
-        <li>企業紹介ページのデザインはどれがいいか？（全4パターン）</li>
-        <li>イメージカラーはどの色にするか？（カラーコードで指定）<li>
-        <li>企業紹介ページの企業画像や動画の部分ははどの比率がいいか？（現状は4:5であるが希望があれば変更する）</li>
-        <li>企業紹介ページの企業紹介文はどのように書くか？（企業側からの提案か自分たちでかくのか文字数など）</li>
-        <li>企業紹介ページの企業概要はどのように書くか？（具体的な項目決め）</li>
+  <section class="section overview">
+    <h2>イベント概要</h2>
+    <p>ここに記入</p>
+  </section>
+
+  <section class="section about">
+    <h2>ファクトリズムとは？</h2>
+    <p>ここに記入</p>
+  </section>
+
+  <section class="section companies">
+    <h2><i class="fas fa-industry"></i> 参加企業一覧</h2>
+    <div class="company-grid">
+      <!-- 企業カードがJavaScriptで動的に生成されます -->
+    </div>
+  </section>
+
+  <footer class="main-footer">
+    <p>&copy; 2025 ファクトリズム実行委員会</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
