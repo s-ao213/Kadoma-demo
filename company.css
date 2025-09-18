@@ -12,9 +12,74 @@ body {
   padding: 20px;
 }
 
+/* ローディング画面のスタイル */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(253, 250, 245, 0.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease-out;
+}
+
+.loading-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid #e0e0e0;
+  border-top: 4px solid #ff6347;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-size: 1.2rem;
+  color: #666;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.loading-progress {
+  width: 300px;
+  height: 4px;
+  background-color: #e0e0e0;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.loading-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6347, #ffa07a);
+  width: 0%;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
 .container {
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+.container.loaded {
+  opacity: 1;
 }
 
 /* 企業名を最上部に表示 */
@@ -34,38 +99,65 @@ body {
 }
 
 .media-container {
-  aspect-ratio: 5 / 4; /* 横5:縦4を維持 */
+  aspect-ratio: 5 / 4;
   position: relative;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   width: 100%;
-  max-width: 500px; /* 800px → 500pxに縮小 */
+  max-width: 500px;
   margin: 0 auto;
+  background-color: #f5f5f5;
 }
 
 .image-placeholder {
   background-color: #ddd;
-  aspect-ratio: 5 / 4; /* 横5:縦4を維持 */
+  aspect-ratio: 5 / 4;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #555;
   font-size: 1.2rem;
   border-radius: 10px;
+  position: relative;
 }
 
+.image-placeholder::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 3px solid #ccc;
+  border-top: 3px solid #ff6347;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-top: 30px;
+}
+
+/* 画像の遅延読み込み対応 */
 .media-content {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.media-content.loaded {
+  opacity: 1;
 }
 
 model-viewer {
   width: 100%;
   height: 100%;
   border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+model-viewer.loaded {
+  opacity: 1;
 }
 
 /* その他のコンテンツを最後に表示 */
@@ -191,12 +283,16 @@ model-viewer {
 /* タブレット表示時 */
 @media (min-width: 768px) {
   .media-container {
-    aspect-ratio: 5 / 4; /* 横5:縦4を維持 */
-    max-width: 600px; /* 900px → 600pxに縮小 */
+    aspect-ratio: 5 / 4;
+    max-width: 600px;
   }
   
   .company-name {
     font-size: 3rem;
+  }
+  
+  .loading-progress {
+    width: 400px;
   }
 }
 
@@ -227,7 +323,7 @@ model-viewer {
   }
   
   .container {
-    flex-direction: column; /* 縦一列レイアウトを維持 */
+    flex-direction: column;
     max-width: 1000px;
     margin: 0 auto;
   }
@@ -242,8 +338,8 @@ model-viewer {
   }
   
   .media-container {
-    aspect-ratio: 5 / 4; /* 横5:縦4を維持 */
-    max-width: 700px; /* 1000px → 700pxに縮小 */
+    aspect-ratio: 5 / 4;
+    max-width: 700px;
   }
   
   .company-name {
@@ -277,11 +373,18 @@ model-viewer {
   opacity: 1;
 }
 
+/* スライドショー画像の遅延読み込み */
 .slide-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.slide-image.loaded {
+  opacity: 1;
 }
 
 .slide-btn {
@@ -346,7 +449,7 @@ model-viewer {
   }
   
   .media-container {
-    max-width: 450px; /* 600px → 450pxに縮小 */
+    max-width: 450px;
   }
   
   .slide-btn {
@@ -369,5 +472,32 @@ model-viewer {
   .indicator {
     width: 10px;
     height: 10px;
+  }
+  
+  .loading-progress {
+    width: 250px;
+  }
+  
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* アニメーション無効化対応 */
+@media (prefers-reduced-motion: reduce) {
+  .loading-spinner,
+  .image-placeholder::after {
+    animation: none;
+  }
+  
+  .slide {
+    transition: none;
+  }
+  
+  .media-content,
+  model-viewer,
+  .slide-image {
+    transition: none;
   }
 }
