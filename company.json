@@ -18,15 +18,15 @@
       "img/1/1-12.jpg",
       "img/1/1-13.jpg"
     ],
-    "eventContent": "No Data",
-    "participationFee": 500,
-    "viewBooth": "No Data",
-    "listenBooth": "No Data",
-    "experienceBooth": "No Data",
-    "overview": "No Data",
-    "website": "No Data",
-    "phone": "No Data",
-    "address": "No Data",
+    "eventContent": "Tig溶接でボルトアート作りを無料体験！ステンレス製ペン立て作りを通じて、板金加工の高品位・高品質なものづくりの真髄をキミの五感で感じ取れ！",
+    "participationFee": 0,
+    "viewBooth": "",
+    "listenBooth": "",
+    "experienceBooth": "ハンマーで叩いてバングルづくり、出来ます。",
+    "overview": "街の顔となる大型建築物の正面玄関を作る職人集団！ここは薄板板金加工を得意とするステンレス製建具を一品一様に創り出すオーダーメイド製作工場だ！",
+    "website": "http://www.ichi.co.jp",
+    "phone": "0728833181",
+    "address": "〒571-0017 大阪府門真市四宮6丁目2-23",
     "sns": {
       "instagram": "No data",
       "twitter": "No data",
@@ -39,7 +39,7 @@
     "id": 2,
     "name": "栄光技研株式会社",
     "industry": "ばね製造",
-    "theme": "img/2/demo.mp4",
+    "theme": "img/2/2.jpg",
     "eventContent": "&nbsp; ばね・線加工品を製造している機械で、当社が準備しているオリジナル雑貨を製造するコースとばねの強さを体感いただくゲームを準備しているコースがあります。工場見学やクイズを通して、ばねを知っていただいたのち、体験活動をしていただきます。",
     "participationFee": 0,
     "viewBooth": "",
@@ -54,10 +54,9 @@
       "twitter": "",
       "facebook": "https://www.facebook.com/p/%E6%A0%84%E5%85%89%E6%8A%80%E7%A0%94%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE-100060081081662/"
     },
-    "themeColor": "#4ECDC4"
-    },
-
-    {
+    "themeColor": "#00C2A8"
+  },
+  {
     "id": 3,
     "name": "北次株式会社",
     "industry": "縫製",
@@ -89,9 +88,8 @@
       "facebook": "",
       "tiktok": ""
     },
-    "themeColor": "#45B7D1"
+    "themeColor": "#00BFE9"
   },
-
   {
     "id": 4,
     "name": "株式会社キンダイ",
@@ -102,7 +100,7 @@
     "viewBooth": "マシニングセンタで木部パーツを自動的に削るところ",
     "listenBooth": "木の削れる音、機械のモーター音",
     "experienceBooth": "",
-    "overview": "&nbsp; ホテル、レストラン、オフィス、老健施設、官庁、学校など向けの業務用の木製の椅子・ソファを製造する会社です。木工機械設備・塗装設備・張り加工設備を有し、門真市で椅子・ソファの一貫生産する会社です。３０人弱に人間で誠実に、一から丁寧に椅子を作っていきます。海外で製作された椅子・ソファが一般的で国内一貫生産の椅子・ソファは減りました。海外製品は人件費が安いため低コストでできますが国内生産はそれなりにコストがかかり、海外製品よりも高くなりますが、製品の信頼性、耐久性、ワンストップで大阪で製品化する付加価値で海外製品と競争しています。",
+    "overview": "&nbsp; ホテル、レストラン、オフィス、老健施設、官庁、学校など向けの業務用の木製の椅子・ソファを製造する会社です。木工機械設備・塗装設備・張り加工設備を有し、門真市で椅子・ソファの一貫生産する会社です。３０人弱の人間で誠実に、一から丁寧に椅子を作っていきます。海外で製作された椅子・ソファが一般的で国内一貫生産の椅子・ソファは減りました。海外製品は人件費が安いため低コストでできますが国内生産はそれなりにコストがかかり、海外製品よりも高くなりますが、製品の信頼性、耐久性、ワンストップで大阪で製品化する付加価値で海外製品と競争しています。",
     "website": "https://kindai-chair.com/",
     "phone": "0728835300",
     "address": "〒571-0017 大阪府門真市四宮5-4-3",
@@ -112,9 +110,8 @@
       "facebook": "",
       "tiktok": ""
     },
-    "themeColor": "#45B7D1"
+    "themeColor": "#FFB300"
   },
-
   {
     "id": 5,
     "name": "栗原木工株式会社",
@@ -135,10 +132,9 @@
       "facebook": "",
       "tiktok": ""
     },
-    "themeColor": "#45B7D1"
+    "themeColor": "#FF7BAC"
   },
-
-    {
+  {
     "id": 6,
     "name": "株式会社広伸",
     "industry": "溶接",
@@ -167,10 +163,9 @@
       "facebook": "",
       "tiktok": ""
     },
-    "themeColor": "#45B7D1"
+    "themeColor": "#FF5C7C"
   },
-
-    {
+  {
     "id": 7,
     "name": "株式会社三和歯車",
     "industry": "歯車製造",
@@ -190,10 +185,9 @@
       "facebook": "",
       "tiktok": ""
     },
-    "themeColor": "#45B7D1"
+    "themeColor": "#FFD166"
   },
-
-    {
+  {
     "id": 8,
     "name": "大日運輸株式会社",
     "industry": "建材製造",
@@ -221,10 +215,9 @@
       "facebook": "",
       "tiktok": ""
     },
-    "themeColor": "#45B7D1"
+    "themeColor": "#8AC926"
   },
-
-    {
+  {
     "id": 9,
     "name": "株式会社ホーシン",
     "industry": "測量・建設機械",
@@ -245,14 +238,13 @@
       "tiktok": "https://www.tiktok.com/@hoshin_hokun",
       "youtube": "https://www.youtube.com/channel/UC9Rb6EHDPWURxo0055NieiA"
     },
-    "themeColor": "#45B7D1"
+    "themeColor": "#FF4D4D"
   },
-
-    {
+  {
     "id": 10,
     "name": "マルイチエクソム株式会社",
     "industry": "樹脂成型",
-    "theme": "img/3/product.glb",
+    "theme": "img/10/10.jpg",
     "eventContent": "未だ、未確定ですが工場見学と会社紹介を行う予定にしています。<br>&nbsp; た今回は初めての土曜日開催となりますので、少しお祭り的な要素でゲーム形式的な<br>&nbsp; 出店やキッチンカーを入れて近隣の方々にもこの工場でいろんな物を製造しているという事を認知してもらいたいと考えています",
     "participationFee": 0,
     "viewBooth": "大型ブロー成型機のサイズ感",
@@ -268,14 +260,13 @@
       "facebook": "",
       "tiktok": ""
     },
-    "themeColor": "#45B7D1"
+    "themeColor": "#6C5CE7"
   },
-  
-    {
+  {
     "id": 11,
     "name": "株式会社ミクロシステム",
     "industry": "FA装置製造",
-    "theme": "img/3/product.glb",
+    "theme": "img/11/11.jpg",
     "eventContent": "&nbsp; FA装置の製作過程を知ってもらいたいと思います。FA装置の制作は設計、組立、配線、プログラム、納入までそれぞれの工程があり、工程ごとに似ているようで全く違う作業が行われています。既に完成された装置が動いているのを見てもらうだけでなく、それがどのようにして1から完成に向かっていくストーリーを、見て、聞いて、触れて、感じて、体験して、最後に「なるほど！」と理解してもらって帰ってほしいと思います。また、実際に展示用のデモ装置を製作して動かしたり、実際にリアルに製作している装置を見てもらい、その装置の用途や難しいところ、作り手の悩みや本音などもお伝えしたいと思います。",
     "participationFee": 0,
     "viewBooth": "",
@@ -291,14 +282,13 @@
       "facebook": "",
       "tiktok": ""
     },
-    "themeColor": "#45B7D1"
+    "themeColor": "#00B894"
   },
-
   {
     "id": 12,
     "name": "森脇鉄工株式会社",
     "industry": "精密加工",
-    "theme": "img/3/product.glb",
+    "theme": "img/12/12.jpg",
     "eventContent": "ファクトリズムでは工場見学ツアーとワークショップを行います。<br>工場見学では実際に機械にも触れていただき、ものづくりを体感していただきます。<br>ワークショップではオリジナルキーホルダーづくりを予定しています。",
     "participationFee": 0,
     "viewBooth": "『鉄』を加工する迫力",
@@ -307,13 +297,13 @@
     "overview": "&nbsp; 当社では印刷に使用する版（シリンダー）のもととなる鉄芯と呼ばれるものを製造しています。印刷物は色の再現性や精度が求められるため、1/100ミリ単位での仕上げを行っています。そのため全ての製品をCNC旋盤で仕上げ加工を行い、検査工程においても表面検査機を使用し高い品質を保っております。<br>&nbsp; また、シリンダーのリサイクル事業も行っており、不要になったシリンダーを回収、保管し要望に応じて最適な加工を行い、提供しております。他社に先行してリサイクル技術やノウハウを確立しており業界ナンバーワンのシェアを誇ります。",
     "website": "http://www.moriwaki-i.co.jp/",
     "phone": "0728873232",
-    "address":"〒571-0015 大阪府門真市三ツ島6-22-1",
+    "address": "〒571-0015 大阪府門真市三ツ島6-22-1",
     "sns": {
       "instagram": "https://www.instagram.com/moriwaki_i/",
       "twitter": "",
       "facebook": "",
       "tiktok": ""
     },
-    "themeColor": "#45B7D1"
+    "themeColor": "#0984E3"
   }
 ]

@@ -43,6 +43,46 @@ body {
   padding: 5px 10px;
 }
 
+.section.overview {
+  padding: 18px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #fffaf6, #fff9f2);
+  border: 1px solid rgba(255,160,122,0.18);
+  box-shadow: 0 6px 18px rgba(2,6,23,0.03);
+}
+
+.section.overview > h2 {
+  margin-bottom: 12px;
+}
+
+/* イベント詳細 */
+.event-details {
+  background:#ffffff;
+  border-radius:10px;
+  padding:16px;
+  border:1px solid #fff0e6;
+  box-shadow: 0 4px 12px rgba(2,6,23,0.04);
+  display:block;
+}
+
+/* 用語（ラベル） */
+.event-details dt {
+  font-weight:800;
+  color:#ff6347; /* 見出しアクセントと統一 */
+  margin-top:10px;
+  font-size:0.98rem;
+  letter-spacing:0.02em;
+}
+
+/* 内容 */
+.event-details dd {
+  margin:6px 0 8px 0;
+  color:#374151;
+  font-size:1rem;
+  line-height:1.6;
+  padding-left:0;
+}
+
 .company-grid {
   display: grid;
   gap: 20px;
@@ -100,4 +140,212 @@ body {
     .company-grid {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+/* 小画面で読みやすく */
+@media (max-width:767px){
+  .section.overview{ padding:14px; }
+  .event-details{ padding:12px; }
+  .event-details dt{ font-size:0.95rem; }
+  .event-details dd{ font-size:0.98rem; }
+}
+
+/* overview ヘッダー（ロゴ + 見出し）*/
+.overview-header{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:12px; /* h2 と dl の間隔確保 */
+}
+
+/* ロゴ */
+.overview-logo{
+  width:120px;        /* デフォルトサイズ */
+  max-width:25%;      /* 横幅が狭いときに収まるように */
+  height:auto;
+  display:block;
+  flex-shrink:0;
+  border-radius:8px;
+  background:transparent;
+}
+
+/* スマホなど狭い画面では縦並びにして見出しを崩さない */
+@media (max-width:600px){
+  .overview-header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+  }
+  .overview-logo{
+    width:88px;
+    max-width:40%;
+  }
+  .section.overview > h2{
+    margin:0; /* 見出し余白はoverview-header側で制御 */
+  }
+}
+
+/* 中〜大画面でロゴを左に固定して見出しを右に寄せる */
+@media (min-width:601px){
+  .overview-logo{
+    width:140px;
+    max-width:160px;
+  }
+}
+
+/* overview の左右レイアウト（PC/タブレットは右に詳細を表示、狭い画面は縦並び） */
+.section.overview .overview-inner{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  align-items:flex-start;
+  justify-content:flex-start;
+}
+
+/* 左（ロゴ＋見出し） */
+.section.overview .overview-left{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  width:100%;
+}
+
+/* 見出しを左ブロック内での調整（モバイルでは中央寄せのまま） */
+.section.overview .overview-left h2{
+  margin:0;
+  font-size:1.25rem;
+}
+
+/* 右（イベント詳細） */
+.section.overview .overview-right{
+  width:100%;
+}
+
+/* ロゴの既存スタイルを踏襲しつつ調整 */
+.overview-logo{
+  width:96px;
+  height:auto;
+  flex-shrink:0;
+  border-radius:6px;
+  background:transparent;
+}
+
+/* 幅が十分な場合は左右2カラムに */
+@media (min-width: 768px){
+  .section.overview .overview-inner{
+    flex-direction:row;
+    align-items:flex-start;
+  }
+
+  .section.overview .overview-left{
+    flex:0 0 320px; /* 左側固定幅（ロゴ＋見出し） */
+    align-items:flex-start;
+  }
+
+  .section.overview .overview-right{
+    flex:1 1 auto;
+    margin-left:20px;
+  }
+
+  .overview-logo{
+    width:120px;
+  }
+
+  .section.overview .overview-left h2{
+    font-size:1.4rem;
+  }
+}
+
+/* 狭い画面（スマホ縦）では縦並び、見出しを目立たせる */
+@media (max-width: 479px){
+  .section.overview .overview-left{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+  }
+  .overview-logo{width:80px;}
+  .section.overview .overview-left h2{font-size:1.1rem}
+}
+
+/* overview 下の詳細と大ロゴを横並びにする（狭い画面では縦並び） */
+.overview-content{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: stretch;
+}
+
+/* 詳細とロゴのカラム比率（デスクトップで横並び） */
+.event-details{
+  flex: 1 1 60%;
+  min-width: 200px;
+}
+
+/* ロゴを右側に大きく表示 */
+.overview-media{
+  flex: 0 0 320px; /* デスクトップ時の横幅 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ロゴ画像の最大サイズ制御（比率を保って収める） */
+.overview-logo-large{
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  display: block;
+}
+
+/* 幅に余裕があるときは横並びにする */
+@media (min-width: 768px){
+  /* 横並び時に画像を確実に中央表示する調整（縦中央・横中央） */
+  .overview-content{
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .overview-media{
+    flex: 0 0 320px;
+    display: flex;
+    align-items: center;      /* 垂直中央 */
+    justify-content: center;  /* 水平中央 */
+  }
+
+  .overview-logo-large{
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* 万一のレイアウト崩れ防止 */
+  }
+
+  /* イベント詳細側が縦方向で中央に寄るように（見た目のバランス用） */
+  .event-details{
+    flex: 1 1 auto;
+    align-self: center;
+  }
+}
+
+/* 狭い画面では縦並び、ロゴを目立たせて中央寄せ */
+@media (max-width: 767px){
+  .overview-content{
+    flex-direction: column;
+  }
+  .overview-media{
+    flex: none;
+    width: 100%;
+    margin-top: 4px;
+    justify-content: center;
+  }
+  .overview-logo-large{
+    max-width: 220px;
+  }
+}
+
+/* 大きな画面でロゴをやや大きめに */
+@media (min-width: 1200px){
+  .overview-media{ flex: 0 0 360px; }
+  .overview-logo-large{ max-width: 360px; }
 }
