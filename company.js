@@ -116,18 +116,31 @@ function displayCompanyData(company) {
     document.getElementById('companyName').textContent = company.name;
     document.getElementById('companyOverview').innerHTML = company.overview;
     document.getElementById('eventContent').innerHTML = company.eventContent;
-    document.getElementById('participationFee').textContent = company.participationFee;
-    
+
     // 企業情報
     document.getElementById('address').innerHTML = company.address;
     document.getElementById('phone').textContent = formatPhoneNumber(company.phone);
-    
+
     const websiteLink = document.getElementById('website');
-    websiteLink.href = company.website;
-    websiteLink.textContent = company.website;
-    
+    if (websiteLink) {
+      websiteLink.href = company.website || '#';
+      websiteLink.textContent = company.website || 'なし';
+    }
+
+    // イベント用リンクを設定（存在しない場合は非表示）
+    const eventBtn = document.getElementById('companyEventButton');
+    if (eventBtn) {
+      if (company.eventUrl && company.eventUrl.trim()) {
+        eventBtn.href = company.eventUrl;
+        eventBtn.style.display = 'inline-block';
+        eventBtn.setAttribute('aria-label', `${company.name} のイベントページを開く`);
+      } else {
+        eventBtn.style.display = 'none';
+      }
+    }
+
     // SNSリンク
-    const snsData = company.sns;
+    const snsData = company.sns || {};
     Object.keys(snsData).forEach(platform => {
         const link = document.getElementById(platform);
         if (link && snsData[platform] && snsData[platform] !== 'No data' && snsData[platform].trim() !== '') {
@@ -135,13 +148,13 @@ function displayCompanyData(company) {
             link.style.display = 'inline-block';
         }
     });
-    
+
     // ブース情報を表示
     displayBoothInfo(company);
-    
+
     // メディアコンテンツを読み込み
     loadMediaContent(company);
-    
+
     // テーマカラーを適用
     applyThemeColor(company.themeColor);
 }
